@@ -20,7 +20,7 @@
 	<target name="test">
 		<junit printsummary="yes" fork="yes" haltonfailure="yes">
 			<formatter type="xml" usefile="true" />
-			<batchtest fork="yes">
+			<batchtest fork="yes" todir="test-reports">
                 <fileset dir="test" includes="*Test.java"/>
             </batchtest>
 		</junit>
