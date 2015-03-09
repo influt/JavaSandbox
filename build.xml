@@ -17,7 +17,7 @@
 		<classpath refid="classpath.test"/>
 	</taskdef>
 
-	<target name="junit" printsummary="yes" fork="yes" haltonfailure="yes">
+	<target name="junit"><!--</target> printsummary="yes" fork="yes" haltonfailure="yes"-->
 			<formatter type="plain"/>
 			<test name="*Test"/>
     </target>
