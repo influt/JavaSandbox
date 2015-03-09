@@ -1,10 +1,10 @@
 <project>
 
-	<path id="classpath.test">
+	<path id="classpath.lib">
 		<fileset dir="./lib/" includes="*.jar" />
-		<fileset dir="./build/classes" includes="*.*" />
+		<pathelement location="./build/jar/MyTestJavaProject.jar"></pathelement>
 	</path>
-
+	
     <target name="clean">
         <delete dir="build"/>
     </target>
@@ -12,18 +12,18 @@
     <target name="compile">
         <mkdir dir="build/classes"/>
         <javac srcdir="src" destdir="build/classes"/>
-        <javac srcdir="test" classpathref="classpath.test" destdir="build/classes"/>
+        <javac srcdir="test" classpathref="classpath.lib" destdir="build/classes"/>
     </target>
 
 	<taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
-		<classpath refid="classpath.test"/>
 	</taskdef>
 
 	<target name="test">
-		<junit printsummary="yes" fork="yes" haltonfailure="yes" haltonerror="yes">
+		<junit printsummary="yes" fork="no" haltonfailure="yes" haltonerror="yes">
+			<classpath refid="classpath.lib"></classpath>
 			<formatter type="xml" usefile="true" />
-			<batchtest fork="yes">
-                <fileset dir="build/classes" includes="*Test*"/>
+			<batchtest fork="no">
+                <fileset dir="build/classes" includes="*/*Test*"/>
             </batchtest>
 		</junit>
     </target>

@@ -1,17 +1,17 @@
 package myproj;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
+import junit.framework.TestCase;
 
-public class ThingTest {
+public class ThingTest extends TestCase{
 
 	private Thing thing;
-	
-	@Before
+
 	public void setUp(){
 		this.thing = new Thing();
 	}
 	
-	@Test
 	public void testDoStuff(){
 		int result = thing.doStuff();
 		Assert.assertEquals(1, result);
