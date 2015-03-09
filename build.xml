@@ -16,6 +16,7 @@
     </target>
 
 	<taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
+		<classpath refid="classpath.lib"></classpath>
 	</taskdef>
 
 	<target name="test">
