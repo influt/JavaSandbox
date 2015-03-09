@@ -7,6 +7,8 @@
     <target name="compile">
         <mkdir dir="build/classes"/>
         <javac srcdir="src" destdir="build/classes"/>
+		
+        <javac srcdir="test" destdir="build/classes"/>
     </target>
 	
 	<path id="classpath.test">
@@ -18,10 +20,10 @@
 	</taskdef>
 
 	<target name="test">
-		<junit printsummary="yes" fork="yes" haltonfailure="yes">
+		<junit printsummary="yes" fork="yes" haltonfailure="yes" haltonerror="yes">
 			<formatter type="xml" usefile="true" />
 			<batchtest fork="yes">
-                <fileset dir="test" includes="*Test.java"/>
+                <fileset dir="build/classes" includes="*Test.java"/>
             </batchtest>
 		</junit>
     </target>
