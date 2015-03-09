@@ -8,12 +8,18 @@
         <mkdir dir="build/classes"/>
         <javac srcdir="src" destdir="build/classes"/>
     </target>
+	
+	<path id="classpath.test">
+		<fileset dir="./lib/" includes="*junit.jar" />
+	</path>
 
-	<target name="test">
-        <junit printsummary="yes" fork="yes" haltonfailure="yes">
+	<taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
+		<classpath refid="classpath.test"/>
+	</taskdef>
+
+	<target name="junit" printsummary="yes" fork="yes" haltonfailure="yes">
 			<formatter type="plain"/>
 			<test name="*Test"/>
-		</junit>
     </target>
 	
     <target name="jar">
