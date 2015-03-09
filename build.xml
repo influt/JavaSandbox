@@ -1,5 +1,9 @@
 <project>
 
+	<path id="classpath.test">
+		<fileset dir="./lib/" includes="*junit*.jar" />
+	</path>
+
     <target name="clean">
         <delete dir="build"/>
     </target>
@@ -8,12 +12,8 @@
         <mkdir dir="build/classes"/>
         <javac srcdir="src" destdir="build/classes"/>
 		
-        <javac srcdir="test" destdir="build/classes"/>
+        <javac srcdir="test" classpathref="classpath.test" destdir="build/classes"/>
     </target>
-	
-	<path id="classpath.test">
-		<fileset dir="./lib/" includes="*junit*.jar" />
-	</path>
 
 	<taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
 		<classpath refid="classpath.test"/>
