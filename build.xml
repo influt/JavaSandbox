@@ -2,7 +2,7 @@
 
 	<path id="classpath.lib">
 		<fileset dir="./lib/" includes="*.jar" />
-		<pathelement location="./build/jar/MyTestJavaProject.jar"></pathelement>
+		<pathelement location="./build/classes"/>
 	</path>
 	
     <target name="clean">
@@ -11,15 +11,18 @@
 
     <target name="compile">
         <mkdir dir="build/classes"/>
-        <javac srcdir="src" destdir="build/classes"/>
-        <javac srcdir="test" classpathref="classpath.lib" destdir="build/classes"/>
+        <javac srcdir="src" classpathref="classpath.lib" destdir="build/classes"/>
     </target>
+	
+	<target name="test-compile">
+        <javac srcdir="test" classpathref="classpath.lib" destdir="build/classes"/>
+	</target>
 
 	<taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
 		<classpath refid="classpath.lib"></classpath>
 	</taskdef>
 
-	<target name="test">
+	<target name="test" depends="test-compile">
 		<junit printsummary="yes" fork="no" haltonfailure="yes" haltonerror="yes">
 			<classpath refid="classpath.lib"></classpath>
 			<formatter type="xml" usefile="true" />
@@ -29,17 +32,11 @@
 		</junit>
     </target>
 	
-    <target name="jar">
-        <mkdir dir="build/jar"/>
-        <jar destfile="build/jar/MyTestJavaProject.jar" basedir="build/classes">
-            <manifest>
-                <attribute name="Main-Class" value="Main"/>
-            </manifest>
-        </jar>
-    </target>
-
-    <target name="run">
-        <java jar="build/jar/MyTestJavaProject.jar" fork="true"/>
+    <target name="war">
+        <mkdir dir="build/war"/>
+        <war destfile="myapp.war" webxml="resources/WEB-INF/web.xml">
+			<fileset dir="src/"/>
+		</war>
     </target>
 
 </project>
