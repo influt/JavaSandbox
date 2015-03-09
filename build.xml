@@ -23,7 +23,7 @@
 		<junit printsummary="yes" fork="yes" haltonfailure="yes" haltonerror="yes">
 			<formatter type="xml" usefile="true" />
 			<batchtest fork="yes">
-                <fileset dir="build/classes" includes="*Test.java"/>
+                <fileset dir="build/classes" includes="*Test*"/>
             </batchtest>
 		</junit>
     </target>
