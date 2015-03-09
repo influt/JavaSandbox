@@ -17,9 +17,11 @@
 		<classpath refid="classpath.test"/>
 	</taskdef>
 
-	<target name="junit"><!--</target> printsummary="yes" fork="yes" haltonfailure="yes"-->
+	<target name="test">
+		<junit printsummary="yes" fork="yes" haltonfailure="yes">
 			<formatter type="plain"/>
 			<test name="*Test"/>
+		</junit>
     </target>
 	
     <target name="jar">
