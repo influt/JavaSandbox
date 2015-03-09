@@ -35,7 +35,7 @@
     <target name="war">
         <mkdir dir="build/war"/>
         <war destfile="build/war/myapp.war" webxml="resources/WEB-INF/web.xml">
-			<fileset dir="build/classes"/>
+			<classes dir="build/classes"/>
 		</war>
     </target>
 
