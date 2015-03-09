@@ -1,3 +1,5 @@
+package myproj;
+
 import org.junit.*;
 
 public class ThingTest {

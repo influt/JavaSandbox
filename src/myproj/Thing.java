@@ -1,3 +1,5 @@
+package myproj;
+
 public class Thing {
 
 	private int someVar = 0;
