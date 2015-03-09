@@ -2,6 +2,7 @@
 
 	<path id="classpath.test">
 		<fileset dir="./lib/" includes="*junit*.jar" />
+		<fileset dir="./build/classes" includes="*.*" />
 	</path>
 
     <target name="clean">
