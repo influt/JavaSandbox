@@ -10,7 +10,7 @@
     </target>
 	
 	<path id="classpath.test">
-		<fileset dir="./lib/" includes="*junit.jar" />
+		<fileset dir="./lib/" includes="*junit*.jar" />
 	</path>
 
 	<taskdef name="junit" classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
