@@ -9,11 +9,18 @@
         <javac srcdir="src" destdir="build/classes"/>
     </target>
 
+	<target name="test">
+        <junit printsummary="yes" fork="yes" haltonfailure="yes">
+			<formatter type="plain"/>
+			<test name="*Test"/>
+		</junit>
+    </target>
+	
     <target name="jar">
         <mkdir dir="build/jar"/>
         <jar destfile="build/jar/MyTestJavaProject.jar" basedir="build/classes">
             <manifest>
-                <attribute name="Main-Class" value="Test"/>
+                <attribute name="Main-Class" value="Main"/>
             </manifest>
         </jar>
     </target>
