@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MyServlet extends HttpServlet {
 
+	private Thing thing;
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		PrintWriter out = response.getWriter();
-		out.println("<html><body>Hello, world</body></html>");
+		out.println("<html><body>Hello, world ("+thing.doStuff()+")</body></html>");
 	}
 
 }
